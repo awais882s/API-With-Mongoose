@@ -5,4 +5,6 @@ const productSchema = new mongoose.Schema({
     city: String,
     email: String,
     mobileNo: Number
-})
+});
+
+module.exports = mongoose.model("products", productSchema);
