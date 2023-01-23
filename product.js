@@ -6,5 +6,4 @@ const productSchema = new mongoose.Schema({
     email: String,
     mobileNo: Number
 });
-
 module.exports = mongoose.model("products", productSchema);
