@@ -19,5 +19,22 @@ app.get("/list", async (req, res) => {
     let data = await Product.find();
     console.log(data);
     res.send("Data Has Been Displayed");
+});
+
+
+app.delete("/delete/:id", async (req, res) => {
+    let data = await Product.deleteOne(req.params)
+    console.log(data)
+    console.log(req.params);
+    res.send("Data Has Been Deleted")
+});
+
+app.put("/update", async (req, res) => {
+    let data = await Product.updateOne(
+        { name: "awais s" },
+        { $set: { name: "updated Name" } }
+    );
+    console.log(data);
+    res.send("data has been update ");
 })
 app.listen(4500); 
