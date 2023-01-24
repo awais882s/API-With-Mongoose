@@ -8,6 +8,7 @@ app.use(express.json());
 app.post("/create", async (req, res) => {
     let data = new Product(req.body);
     let result = await data.save();
+    console.log(result);
     console.log(req.body);
     res.send("Data has been save in DB");
 });
