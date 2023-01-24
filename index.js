@@ -36,5 +36,14 @@ app.put("/update/:_id", async (req, res) => {
     );
     console.log(data);
     res.send("data has been update ");
+});
+
+
+
+// Search API in With MongoDB ===================================
+
+app.get("/search/:key", (req, res) => {
+
+    res.send("Search Done");
 })
 app.listen(4500); 
