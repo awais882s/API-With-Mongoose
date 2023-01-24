@@ -12,4 +12,12 @@ app.post("/create", async (req, res) => {
     console.log(req.body);
     res.send("Data has been save in DB");
 });
+
+
+// get data from database
+app.get("/list", async (req, res) => {
+    let data = await Product.find();
+    console.log(data);
+    res.send("Data Has Been Displayed");
+})
 app.listen(4500); 
