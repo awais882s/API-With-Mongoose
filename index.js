@@ -29,10 +29,10 @@ app.delete("/delete/:id", async (req, res) => {
     res.send("Data Has Been Deleted")
 });
 
-app.put("/update", async (req, res) => {
+app.put("/update/:_id", async (req, res) => {
     let data = await Product.updateOne(
-        { name: "awais s" },
-        { $set: { name: "updated Name" } }
+        req.params,
+        { $set: req.body }
     );
     console.log(data);
     res.send("data has been update ");
