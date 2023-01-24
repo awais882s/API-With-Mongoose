@@ -42,8 +42,21 @@ app.put("/update/:_id", async (req, res) => {
 
 // Search API in With MongoDB ===================================
 
-app.get("/search/:key", (req, res) => {
+app.get("/search/:key", async (req, res) => {
+    let data = await Product.find(
+        {
+            "$or": [
+                { "name": { $regex: req.params.key } },
+                { "city": { $regex: req.params.key } },
+                { "email": { $regex: req.params.key } },
+                { "email": { $regex: req.params.key } },
 
-    res.send("Search Done");
+
+
+
+            ]
+        }
+    )
+    res.send(data);
 })
 app.listen(4500); 
